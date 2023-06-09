@@ -1,0 +1,115 @@
+<%- include('../partials/bhead.ejs') %>
+<body>
+  <%- include('../partials/bheader.ejs') %>
+
+  <div
+    class="container-md mt-5 d-flex flex-column justify-content-center align-items-center"
+    style="min-height: calc(100vh - 70px - 50px)"
+  >
+    <form
+      action="/register"
+      class="row"
+      id="form"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      <div class="text-center mb-3">
+        <h2>Registrarse</h2>
+      </div>
+      <div class="col-6 mb-3">
+        <label for="first_name" class="form-label">Nombre</label>
+        <input
+          type="text"
+          class="form-control <% if (locals.errors && errors.first_name) { %> is-invalid <% } %>"
+          id="first_name"
+          name="first_name"
+          value="<%= locals.oldData ? oldData.first_name : null  %>"
+        />
+        <% if (locals.errors && errors.first_name) { %>
+        <span class="form-line-register text-danger"
+          ><%= errors.first_name.msg %></span
+        >
+        <% } %>
+      </div>
+      <div class="col-6 mb-3">
+        <label for="last_name" class="form-label">Apellido</label>
+        <input
+          type="text"
+          class="form-control <% if (locals.errors && errors.last_name) { %> is-invalid <% } %>"
+          id="last_name"
+          name="last_name"
+          value="<%= locals.oldData ? oldData.last_name : null  %>"
+        />
+        <% if (locals.errors && errors.last_name) { %>
+        <span class="form-line-register text-danger"
+          ><%= errors.last_name.msg %></span
+        >
+        <% } %>
+      </div>
+      <div class="col-12 mb-3">
+        <label class="form-label" for="address">Dirección</label>
+        <input
+          class="form-control <% if (locals.errors && errors.address) { %> is-invalid <% } %>"
+          type="text"
+          id="address"
+          name="address"
+          value="<%= locals.oldData ? oldData.address : null  %>"
+        />
+        <% if (locals.errors && errors.address) { %>
+        <span class="form-line-register text-danger"
+          ><%= errors.address.msg %></span
+        >
+        <% } %>
+      </div>
+      <div class="col-6 mb-3">
+        <label class="form-label" for="email">Email</label>
+        <input
+          class="form-control <% if (locals.errors && errors.email) { %> is-invalid <% } %>"
+          type="email"
+          name="email"
+          id="email"
+          value="<%= locals.oldData ? oldData.email : null  %>"
+        />
+        <% if (locals.errors && errors.email) { %>
+        <span class="form-line-register text-danger"
+          ><%= errors.email.msg %></span
+        >
+        <% } %>
+      </div>
+      <div class="col-6 mb-3">
+        <label class="form-label" for="password">Password</label>
+        <input
+          class="form-control <% if (locals.errors && errors.address) { %> is-invalid <% } %>"
+          type="password"
+          id="password"
+          name="password"
+        />
+        <% if (locals.errors && errors.password) { %>
+        <span class="form-line-register text-danger"
+          ><%= errors.password.msg %></span
+        >
+        <% } %>
+      </div>
+      <div class="col-12 mb-3">
+        <label for="formFileMultiple" class="form-label"
+          >Selecciona tu avatar</label
+        >
+        <input
+          class="form-control"
+          type="file"
+          name="avatar"
+          id="formFileMultiple"
+        />
+        <% if (locals.errors && errors.avatar) { %>
+        <span class="form-select-register"><%= errors.avatar.msg %></span>
+        <% } %>
+      </div>
+      <div class="col-12 mt-3 text-center">
+        <button type="submit" class="btn btn-primary">Registrarse</button>
+        <p class="fs-6 mt-2"><a href="login">Iniciar Sesión</a></p>
+      </div>
+    </form>
+  </div>
+  <%- include('../partials/bfooter&scripts.ejs') %>
+  <script src="/js/Users/registerFrontValidation.js"></script>
+</body>

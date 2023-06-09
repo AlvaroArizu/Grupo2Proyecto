@@ -1,0 +1,3 @@
+Reunion grupal:
+
+Ante la partida de dos compañeros, el grupo supo salir adelante y logró una mejor organizacion. Se dividieron las tareas equitativamente, siempre todos predispuestos para ayudar al compañero ante el surgimiento de alguna duda. Se trabajo a tiempo y con muy buena comunicacion, a pesar de como dijimos al principio ser dos integrantes menos. Creemos que mejoramos en todo lo mencionado anteriormente con respecto a los sprints anteriores, y tambien pidiendoles a ustedes cualquier tipo de critica constructiva, que nos haga mejorar aun mas como equipo.

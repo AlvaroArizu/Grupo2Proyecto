@@ -1,0 +1,65 @@
+<header class="sticky-top">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="/">
+        <img src="/images/img/DS.png" alt="Digital Shop" />
+      </a>
+      <button
+        class="navbar-toggler border-0"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ms-lg-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/products/all">Productos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contacto">Contacto</a>
+          </li>
+          <% if (locals.isLogged && locals.userLogged.id_rol === 1) { %>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/control">Administrar</a>
+          </li>
+          <% } %>
+          <% if (locals.isLogged) { %>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="dropUser"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <img
+                src="/images/avatar/<%= locals.userLogged.avatar %>"
+                width="40"
+                style="border-radius: 100%"
+              />
+              Hola <%= locals.userLogged.first_name %>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropUser">
+              <li><a class="dropdown-item" href="/profile">Perfil</a></li>
+              <li><a class="dropdown-item" href="/logout">Salir</a></li>
+            </ul>
+          </li>
+          <% } else { %>
+          <li class="nav-item">
+            <a class="nav-link" href="login" class="user">Usuario</a>
+          </li>
+          <% } %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

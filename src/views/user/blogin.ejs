@@ -1,0 +1,77 @@
+<%- include('../partials/bhead.ejs') %>
+<body>
+  <%- include('../partials/bheader.ejs') %>
+
+  <div
+    class="container d-flex justify-content-center align-items-center"
+    style="min-height: calc(100vh - 70px - 50px)"
+  >
+    <div class="row">
+      <div class="col align-self-center d-none d-md-block">
+        <img
+          src="/images/img/medium-shot-man-wearing-vr-glasses.png"
+          class="img-fluid"
+          alt="Digital Shop"
+        />
+      </div>
+      <div class="col">
+        <h2 class="fw-bold text-center pt-3 mb-2">Bienvenidos</h2>
+        <p class="form-paragraph-login">
+          ¿Aún no tienes una cuenta?
+          <a href="/register" class="form-link-login">Entra aquí</a>
+        </p>
+        <!-- en action aun no puse nada -->
+        <form class="form-login" action="/login" method="POST" id="form">
+          <div class="col-12">
+            <label for="email" class="form-label">Correo electrónico</label>
+            <input
+              type="email"
+              class="form-control <% if (locals.errors && errors.email) { %> is-invalid <% } %>"
+              name="email"
+              value="<%= locals.oldData ? oldData.email
+                : null %>"
+            />
+            <% if (locals.errors && errors.email) { %>
+            <span class="form-span-create text-danger"
+              ><%= errors.email.msg %></span
+            >
+            <% } %>
+          </div>
+          <div class="col-12">
+            <label for="password" class="form-label">Contraseña</label>
+            <input
+              type="text"
+              class="form-control <% if (locals.errors && errors.password) { %> is-invalid <% } %>"
+              name="password"
+              value="<%= locals.oldData ? oldData.password
+            : null %>"
+            />
+            <% if (locals.errors && errors.password) { %>
+            <span class="form-span-create text-danger"
+              ><%= errors.password.msg %></span
+            >
+            <% } %>
+          </div>
+          <div class="col-12 form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              name="remember_user"
+            />Recordar mi usuario
+          </div>
+          <div class="d-grid">
+            <button type="submit" class="btn btn-primary">
+              Iniciar Sesión
+            </button>
+
+            <p class="text-center">
+              <a href="#">¿Olvidaste la contraseña?</a>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <%- include('../partials/bfooter&scripts.ejs') %>
+  <script src="/js/Users/loginFrontValidation.js"></script>
+</body>

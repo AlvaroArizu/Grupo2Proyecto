@@ -1,0 +1,48 @@
+<%- include('../partials/bhead.ejs') %>
+<body>
+  <%- include('../partials/bheader.ejs') %>
+
+  <div class="container" style="min-height: calc(100vh - 70px - 50px)">
+    <div class="text-center mt-5 mb-5">
+      <h1>PERFIL</h1>
+    </div>
+    <div class="text-center mt-2 mb-4">
+      <img
+        class="rounded-circle mx-auto d-block"
+        src="/images/avatar/<%= user.avatar %>"
+        alt="<%= user.avatar %>"
+        style="width: 500px; height: 500px; object-fit: cover"
+      />
+    </div>
+    <div class="text-center mt-2 mb-4">
+      <h2><%= user.first_name %></h2>
+      <h2><%= user.email %></h2>
+    </div>
+
+    <div class="text-center mb-3">
+      <a
+        class="btn btn-outline-info btn-lg"
+        href="/edit/<%= user.id %>"
+        role="button"
+        >Editar</a
+      >
+    </div>
+
+    <form
+      class="form-register"
+      action="/delete/<%= user.id %>?_method=DELETE"
+      method="POST"
+      id="form-register"
+    >
+      <div class="text-center">
+        <button class="btn btn-outline-danger btn-md" type="submit">
+          Eliminar
+        </button>
+      </div>
+    </form>
+
+    <!-- <button id="delete-user" data-user-id="<%= user.id %>">Eliminar</button> -->
+  </div>
+  <!-- <script src="/js/delete-user.js"></script> -->
+  <%- include('../partials/bfooter&scripts.ejs') %>
+</body>

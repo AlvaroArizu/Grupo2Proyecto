@@ -1,0 +1,47 @@
+<%- include('../partials/bhead.ejs') %>
+<body>
+  <%- include('../partials/bheader.ejs') %>
+  <div
+    class="container-md mt-5 d-flex flex-column justify-content-center align-items-center"
+    style="min-height: calc(100vh - 70px - 50px)"
+  >
+    <div class="text-center mt-3 mb-2">
+      <h1><%= product.name %></h1>
+    </div>
+    <div class="show-image">
+      <% if (product.image) { %> <% if (Array.isArray(product.image)) { %> <%
+      product.images.forEach(image => { %>
+      <img
+        class="rounded-circle mx-auto d-block"
+        src="/images/products/<%= image.name %>"
+        alt="<%= image.name %>"
+      />
+      <% }) %> <% } else { %>
+      <img src="/images/products/<%= product.image %>" alt="" />
+      <% } %> <% } else { %>
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/3/39/Peu404vitfr.jpg"
+        alt=""
+      />
+      <% } %>
+    </div>
+    <div class="text-center mt-5">
+      <h4><%= product.description %></h4>
+    </div>
+    <div class="text-center mt-2 mb-3">
+      <article class="show-price">
+        <strong><%= product.price %></strong>
+      </article>
+    </div>
+
+    <div class="product-actions">
+      <a href="/admin/control"
+        ><button class="btn btn-primary btn-sm" type="button">
+          <span>Volver a lista de productos</span>
+        </button></a
+      >
+    </div>
+  </div>
+
+  <%- include('../partials/bfooter&scripts.ejs') %>
+</body>

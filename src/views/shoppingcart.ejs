@@ -1,0 +1,113 @@
+
+    <%- include ('./partials/head.ejs') %> 
+<body>
+    <%- include('./partials/header.ejs')  %> 
+    <h2>Carrito de compras</h2>
+    <section id="cart-conteiner" class="conteiner">
+      <table class="table-shopp">
+        <thead>
+          <tr>
+            <td>Imagen</td>
+            <td>Producto</td>
+            <!-- <td>Price</td> -->
+            <td>Cantidad</td>
+            <td>Total</td>
+            <td>Borrar</td>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td><img src="/images/cell/motog200.webp" alt="" /></td>
+            <td>
+              <h5>Motorola G200</h5>
+            </td>
+            <!-- <td>
+                                <h5>$169999</h5>
+                            </td> -->
+            <td><input class="w-25 pl-1" value="1" type="number" /></td>
+            <td>
+              <h5>$169999</h5>
+            </td>
+            <td>
+              <a href="#"
+                ><img
+                  src="/images/cell/trash-can-regular.svg"
+                  class="icon"
+                  alt=""
+              /></a>
+            </td>
+          </tr>
+          <tr>
+            <td><img src="/images/cell/SamsungA32.webp" alt="" /></td>
+            <td>
+              <h5>Samsung A32</h5>
+            </td>
+            <!-- <td>
+                                <h5>$169999</h5>
+                            </td> -->
+            <td><input class="w-25 pl-1" value="1" type="number" /></td>
+            <td>
+              <h5>$169999</h5>
+            </td>
+            <td>
+              <a href="#"
+                ><img
+                  src="/images/cell/trash-can-regular.svg"
+                  class="icon"
+                  alt=""
+              /></a>
+            </td>
+          </tr>
+          <tr>
+            <td><img src="/images/cell/TCL 20 SE.webp" alt="" /></td>
+            <td>
+              <h5>TCL 20 SE</h5>
+            </td>
+            <!-- <td>
+                                <h5>$169999</h5>
+                            </td> -->
+            <td><input class="w-25 pl-1" value="1" type="number" /></td>
+            <td>
+              <h5>$169999</h5>
+            </td>
+            <td>
+              <a href="#"
+                ><img
+                  src="/images/cell/trash-can-regular.svg"
+                  class="icon"
+                  alt=""
+              /></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section id="cart-bottom" class="container">
+      <div class="row-cart">
+        <h5>CUPÓN</h5>
+        <div class="coupon">
+          
+            <input type="text" placeholder="Ingresa el cupón" />
+            <button >Aplicar cupón</button>
+         
+        </div>
+        <div class="total">
+          <h5>TOTAL</h5>
+          <div class="container-total">
+            <h6>Shipping</h6>
+            <p>$200.000</p>
+
+            <hr class="second-hr" />
+
+            <h6>Total</h6>
+            <p>$200.000</p>
+
+            <button class="button-cart">Pagar</button>
+          </div>
+        </div>
+      </div>
+    </section>
+<%- include('./partials/footer.ejs') %>
+</body>
+</html>

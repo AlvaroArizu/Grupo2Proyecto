@@ -1,0 +1,61 @@
+<%- include('../partials/bhead.ejs') %>
+<body>
+  <%- include('../partials/bheader.ejs') %>
+
+  <div class="container" style="min-height: calc(100vh - 70px - 50px)">
+    <div class="text-center mt-5 mb-5">
+      <h1>Vista Administrador</h1>
+      <a href="/admin/create" class="btn btn-outline-primary mt-5"
+        >Agregar un nuevo producto</a
+      >
+    </div>
+    <section id="" class="row align-items-lg-center">
+      <% allProducts.forEach(product => { %>
+      <div class="col-12 col-md-6 col-lg-3 d-flex mb-5">
+        <div
+          class="card"
+          style="width: 18rem; display: flex; flex-direction: column"
+        >
+          <% if (product.Imagen && product.Imagen.length > 0) { %>
+          <img
+            src="/images/products/<%= product.Imagen[0].imagen %>"
+            alt="<%= product.Imagen[0].imagen %>"
+            class="w-100"
+            style="height: 200px; object-fit: cover"
+          />
+
+          <% } else { %>
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/3/39/Peu404vitfr.jpg"
+            alt=""
+            class="w-100"
+            style="height: 200px; object-fit: cover"
+          />
+          <% } %>
+
+          <div class="card-body">
+            <h5 class="card-title"><%= product.name %></h5>
+            <p class="card-text"><%= product.description %></p>
+            <div class="d-flex justify-content-between">
+              <a
+                href="/admin/edit/<%= product.id %>"
+                class="btn btn-primary btn-sm"
+                >Editar</a
+              >
+              <form
+                action="/admin/delete/<%= product.id %>?_method=DELETE"
+                method="POST"
+              >
+                <button type="submit" class="btn btn-danger btn-sm">
+                  Eliminar
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% }) %>
+    </section>
+  </div>
+  <%- include('../partials/bfooter&scripts.ejs') %>
+</body>
